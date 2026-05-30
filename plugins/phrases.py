@@ -1,16 +1,29 @@
 import streamlit as st
 import random
+from datetime import datetime, timedelta
 
 
 def render():
     frases = [
-        "No importa la distancia, seguimos contando los mismos días.",
-        "Cada segundo que pasa nos acerca un poco más.",
-        "La espera también forma parte de nuestra historia.",
-        "Volver a verte será mi momento favorito.",
-        "Falta menos que ayer, y eso ya me hace feliz."
+        "Te amo mucho, tanto....",
+        "Te amo, por si las moscas.",
+        "Me encanta como tus mesos se sintieron tan bien y tan familiares desde el minuto uno.",
+        "Me encanta como me amas.",
     ]
 
+    ahora = datetime.now()
+
+    intervalo_cambio = timedelta(hours=24)
+
+    if "frase_actual" not in st.session_state:
+        st.session_state.frase_actual = random.choice(frases)
+        st.session_state.ultima_actualizacion_frase = ahora
+
+    tiempo_transcurrido = ahora - st.session_state.ultima_actualizacion_frase
+
+    if tiempo_transcurrido >= intervalo_cambio:
+        st.session_state.frase_actual = random.choice(frases)
+        st.session_state.ultima_actualizacion_frase = ahora
+
     st.subheader("Mensaje de hoy")
-    st.write(random.choice(frases))
-    
+    st.write(st.session_state.frase_actual)
