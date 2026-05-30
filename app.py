@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_autorefresh import st_autorefresh
 from datetime import datetime
 import importlib
 import os
@@ -12,6 +13,7 @@ st.set_page_config(
     layout="centered"
 )
 
+st_autorefresh(interval=1000, key="contador_reencuentro")
 
 def calculate_countdown(target_date: datetime):
     now = datetime.now()
