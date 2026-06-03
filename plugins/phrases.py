@@ -7,7 +7,7 @@ def render():
     frases = [
         "Te amo mucho, tanto....",
         "Te amo, por si las moscas.",
-        "Me encanta como tus mesos se sintieron tan bien y tan familiares desde el minuto uno.",
+        "Me encanta como tus besos se sintieron tan bien y tan familiares desde el minuto uno.",
         "Me encanta como me amas.",
     ]
 
